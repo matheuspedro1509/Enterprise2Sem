@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fiap.Banco.Model
+namespace Fiap.Exercicio01.Model
 {
     class ContaCorrente : Conta
     {
@@ -17,15 +17,12 @@ namespace Fiap.Banco.Model
 
         public override void Retirar(decimal valor)
         {
+            if (TipoConta == TipoConta.Comum && Saldo < valor)
+            {
+                throw new System.ArgumentException("Seu saldo ficara negativo");
+            }
+
             Saldo -= valor;
-
-            if (TipoConta == TipoConta.Comum && Saldo < 0)
-            {
-                throw new System.ArgumentException("Seu saldo ficara negativo") ;
-            }
-            {
-
-            }
         }
     }
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fiap.Banco.Model
+namespace Fiap.Exercicio01
 {
-    enum TipoConta
+    class Program
     {
-    Comum, Especial , Premium
+        static void Main(string[] args)
+        {
+        }
     }
 }
