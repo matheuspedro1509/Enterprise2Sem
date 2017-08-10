@@ -8,7 +8,7 @@ namespace Fiap.Exercicio01.Model
 {
     class ContaCorrente : Conta
     {
-        public TipoConta TipoConta { get; set; }
+        public TipoConta Tipo { get; set; }
 
         public override void Depositar(decimal valor)
         {
@@ -17,7 +17,7 @@ namespace Fiap.Exercicio01.Model
 
         public override void Retirar(decimal valor)
         {
-            if (TipoConta == TipoConta.Comum && Saldo < valor)
+            if (Tipo == TipoConta.Comum && Saldo < valor)
             {
                 throw new System.ArgumentException("Seu saldo ficara negativo");
             }

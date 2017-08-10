@@ -10,7 +10,7 @@ namespace Fiap.Exercicio01.Model
     {
         public int Agencia { get; set; }
 
-        public DateTime dataAbertura { get; set; }
+        public DateTime DataAbertura { get; set; }
 
         public int Numero { get; set; }
 
