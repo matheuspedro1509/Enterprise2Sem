@@ -16,7 +16,13 @@ namespace Fiap.Exemplo02.Web.MVC.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            return View();
+            List<string> especies = new List<string>();
+            especies.Add("Cachorro");
+            especies.Add("Gato");
+            especies.Add("Pássaro");
+            especies.Add("Peixe");
+            ViewBag.opcoes = new SelectList(especies);
+           return View();
         }
 
         [HttpPost]
@@ -27,7 +33,7 @@ namespace Fiap.Exemplo02.Web.MVC.Controllers
             //Mensagem de sucesso
             TempData["msg"] = "Cadastrado";
             ViewBag.mensagem = "Cadastrou";
-            return View();
+            return RedirectToAction("Cadastro");
         }
 
         [HttpGet]

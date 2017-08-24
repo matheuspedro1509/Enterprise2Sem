@@ -14,12 +14,7 @@
     </tr>
     @foreach(var item in Model)
     {
-        <tr>
-            <td>@item.Nome</td>
-            <td>@item.DataNascimento</td>
-            <td>@item.Castrado</td>
-            <td>@item.Descricao</td>
-        </tr>
+        @Html.Partial("_linhaTabela",item)
     }
 </table>
 

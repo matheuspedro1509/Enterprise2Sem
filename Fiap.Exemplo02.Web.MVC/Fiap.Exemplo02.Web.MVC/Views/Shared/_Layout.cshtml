@@ -21,8 +21,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Cadastro Pet","Cadastro","Pet")</li>
-                    <li>@Html.ActionLink("Listagem Pet", "Listar", "Pet")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pet <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastro Pet", "Cadastro", "Pet")</li>
+                            <li>@Html.ActionLink("Listagem Pet", "Listar", "Pet")</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -38,5 +43,6 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("BlocoScript", false)
 </body>
 </html>
