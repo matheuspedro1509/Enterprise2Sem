@@ -1,5 +1,6 @@
 ﻿using Fiap.Exemplo04.Web.MVC.Models;
 using Fiap.Exemplo04.Web.MVC.Persistencia;
+using Fiap.Exemplo04.Web.MVC.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,13 @@ namespace Fiap.Exemplo04.Web.MVC.Controllers
 {
     public class TimeController : Controller
     {
-        private FutebolContext _context = new FutebolContext();
+
+        private UnitOfWork _unit = new UnitOfWork();
 
         [HttpGet]
         public ActionResult Listar()
         {
-            return View(_context.Times.Include("Tecnico").ToList());
+            return View(_unit.TimeRepository.Listar());
         }
 
         [HttpGet]
@@ -26,10 +28,16 @@ namespace Fiap.Exemplo04.Web.MVC.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Time time)
         {
-            _context.Times.Add(time);
-            _context.SaveChanges();
+            _unit.TimeRepository.Cadastrar(time);
+            _unit.Salvar();
             TempData["msg"] = "Time Cadastrado!";
             return RedirectToAction("Cadastrar");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _unit.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
