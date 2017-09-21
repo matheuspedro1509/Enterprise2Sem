@@ -1,0 +1,25 @@
+﻿@model List<Fiap.Exemplo04.Web.MVC.Models.Jogador>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Jogadores</h2>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>Nome</th>
+        <th>Número</th>
+        <th>Time</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Numero</td>
+            <td>@item.Time.Nome</td>
+        </tr>
+    }
+
+</table>
+
